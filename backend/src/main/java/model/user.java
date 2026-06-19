@@ -12,6 +12,7 @@ public class user {
 
     @NotBlank(message = "Password is required")
     @Size(min = 6, message = "Password must be at least 6 characters long")
+    @JsonProperty("password")
     private String passwordHash;
     private String role; // PLAYER, COACH, ADMIN
 
