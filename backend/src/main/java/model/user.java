@@ -1,13 +1,21 @@
 package model;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 public class user {
     private int id;
+
+    @NotBlank(message = "Email is required")
+    @Email(message = "Please enter a valid email address")
     private String email;
 
-    @JsonProperty("password")
+    @NotBlank(message = "Password is required")
+    @Size(min = 6, message = "Password must be at least 6 characters long")
     private String passwordHash;
-
     private String role; // PLAYER, COACH, ADMIN
+
+    @NotBlank(message = "Full name is required")
     private String fullName;
 
     public user() {}
